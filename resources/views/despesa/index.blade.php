@@ -10,7 +10,7 @@
 
             @forelse ($posts as $post)
                 <ul>
-                    <li> <a href="./despesa/{{$post->id}}"> {{$post->nome}} </a> </li>
+                    <li> <a href="./despesa/{{$post->id}}"> {{$post->nome}}: {{ $post -> quantidade }}€ </a> </li>
                 </ul>
             @empty
                 <p class="text-warning"> Sem despesas registadas </p>

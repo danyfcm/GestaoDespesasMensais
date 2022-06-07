@@ -56,4 +56,48 @@ class DespesaController extends Controller
 
         return view( 'despesa.show', ['post' => $despesa] );
     }
+
+        /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Despesa  $despesa
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Despesa $despesa)
+    {
+        //
+
+        return view( 'despesa.edit', ['post' => $despesa] );
+    }
+
+        /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Despesa  $despesa
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Despesa $despesa)
+    {
+        //
+        $despesa -> update( [ 'nome' => $request -> nome, 'quantidade' => $request -> quantidade, 'data' => $request -> data ] );
+
+        return redirect( 'despesa/'.$despesa -> id );
+
+    }
+
+        /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Despesa  $despesa
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Despesa $despesa)
+    {
+        //
+        $despesa -> delete();
+
+        return redirect( '/despesa' );
+
+    }
 }
