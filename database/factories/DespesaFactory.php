@@ -16,9 +16,10 @@ class DespesaFactory extends Factory
         return [
             //
 
-            'nome'     => $this -> faker -> name(),
-            'quantidade'      => $this -> faker -> randomFloat(),
-            'data'   => $this -> faker -> dateTime()
+            'nome'       => $this -> faker -> name(),
+            'quantidade' => $this -> faker -> randomFloat(2, 1, 1000),
+            'data'       => $this -> faker -> dateTime(),
+            'userid'     => $this -> faker -> randomDigitNotNull()
 
         ];
     }

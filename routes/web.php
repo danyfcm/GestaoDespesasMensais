@@ -48,13 +48,14 @@ Route::group(['namespace'=>'App\Http\Controllers'],function(){
         Route::get ('/login', 'LoginController@show')   -> name('login.show');
         Route::post('/login', 'LoginController@login')  -> name('login.perform');
 
-        // Rotas para logout
-        Route::get('/logout', 'LogoutController@perform') -> name('logout.perform');
 
     });
 
 
     Route::group( [ 'middleware' => ['auth'] ], function() {
+
+        // Rotas para logout
+        Route::get('/logout', 'LogoutController@logout') -> name('logout.perform');
 
         Route::group(['prefix'=>'users'], function(){
             Route::get('/','UsersController@index')                     ->name('users.index');

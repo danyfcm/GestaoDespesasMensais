@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-
-    <form method="POST" action="{{route('register.perform')}}">
+    <h1 style="text-align: center">Registar</h1>
+    <form method="POST" action="{{route('register.perform')}}" style="width: 20vw; margin-left: 40vw; margin-top: 3vh">
 
         @csrf
 
@@ -41,7 +41,7 @@
             @endif
         </div>
 
-        <button type = "submit" class = "btn btn-primary"> Register </button>
+        <button type = "submit" class = "btn btn-primary" style="margin-left: 40%; margin-top: 5%"> Register </button>
 
     </form>
 

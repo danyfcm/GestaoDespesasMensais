@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-
-    <form method="POST" action="{{route('login.perform')}}">
+    <h1 style="text-align: center">Login</h1>
+    <form method="POST" action="{{route('login.perform')}}" style="width: 20vw; margin-left: 40vw; margin-top: 3vh">
 
         @csrf
         <div class="form-group">
@@ -18,7 +18,7 @@
             <input type = "password" id="password" name = "password" class = "form-control"">
         </div>
 
-        <button type = "submit" class = "btn btn-primary"> Login </button>
+        <button type = "submit" class = "btn btn-primary" style="margin-left: 40%; margin-top: 5%"> Login </button>
 
     </form>
 

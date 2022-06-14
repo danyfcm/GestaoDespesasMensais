@@ -18,7 +18,9 @@ class CreateDespesasTable extends Migration
             $table -> text('nome');
             $table -> decimal('quantidade');
             $table -> dateTime('data');
+            $table -> integer('userId');
             $table -> timestamps();
+
         });
     }
 
