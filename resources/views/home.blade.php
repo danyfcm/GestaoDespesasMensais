@@ -9,7 +9,7 @@
 
                 @auth
                     <p>Para ver as despesas clique no botão</p>
-                    <a href="/despesa" class="btn btn-outline-primary"> Ver Despesas </a>
+                    <a href="/{{ @Auth::user()->id }}/despesa" class="btn btn-outline-primary"> Ver Despesas </a>
                     <br>
 
                     <a href="{{ route('logout.perform') }}" class="btn btn-outline-primary" style="margin: 1vh"> Logout </a>

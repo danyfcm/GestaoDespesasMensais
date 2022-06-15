@@ -18,21 +18,21 @@ Route::get('/', function () {
 });
 
 //Index
-Route::get( '/despesa', [ \App\Http\Controllers\DespesaController::class, 'index' ] );
+Route::get( '/{user}/despesa', [ \App\Http\Controllers\DespesaController::class, 'index' ] );
 
 //Show
-Route::get( '/despesa/{despesa}', [\App\Http\Controllers\DespesaController::class, 'show'] );
+Route::get( '/{user}/despesa/{despesa}', [\App\Http\Controllers\DespesaController::class, 'show'] );
 
 //Create
-Route::get( '/despesa/create/post', [\App\Http\Controllers\DespesaController::class, 'create'] );
-Route::post( '/despesa/create/post', [\App\Http\Controllers\DespesaController::class, 'store'] );
+Route::get( '/{user}/despesa/create/post', [\App\Http\Controllers\DespesaController::class, 'create'] );
+Route::post( '/{user}/despesa/create/post', [\App\Http\Controllers\DespesaController::class, 'store'] );
 
 //Edit
-Route::get( '/despesa/{despesa}/edit', [\App\Http\Controllers\DespesaController::class, 'edit'] );
-Route::put( '/despesa/{despesa}/edit', [\App\Http\Controllers\DespesaController::class, 'update'] );
+Route::get( '/{user}/despesa/{despesa}/edit', [\App\Http\Controllers\DespesaController::class, 'edit'] );
+Route::put( '/{user}/despesa/{despesa}/edit', [\App\Http\Controllers\DespesaController::class, 'update'] );
 
 //Delete
-Route::delete( '/despesa/{despesa}', [\App\Http\Controllers\DespesaController::class, 'destroy'] );
+Route::delete( '/{user}/despesa/{despesa}', [\App\Http\Controllers\DespesaController::class, 'destroy'] );
 
 
 //== Users ==
@@ -57,15 +57,6 @@ Route::group(['namespace'=>'App\Http\Controllers'],function(){
         // Rotas para logout
         Route::get('/logout', 'LogoutController@logout') -> name('logout.perform');
 
-        Route::group(['prefix'=>'users'], function(){
-            Route::get('/','UsersController@index')                     -> name('users.index');
-            Route::get('/create','UsersController@create')              -> name('users.create');
-            Route::post('/create','UsersController@store')              -> name('users.store');
-            Route::get('/{user}/show','UsersController@show')           -> name('users.show');
-            Route::get('/{user}/edit','UsersController@edit')           -> name('users.edit');
-            Route::patch('/{user}/update','UsersController@update')     -> name('users.update');
-            Route::delete('/{user}/delete','UsersController@destroy')   -> name('users.destroy');
-        });
 
     });
 

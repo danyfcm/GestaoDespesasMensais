@@ -4,15 +4,15 @@
     <div class="container">
         <div class="row">
 
-            <a href="/despesa" class="btn btn-outline-secondary"> Voltar </a>
+            <a href="/{{ Auth::user()->id }}/despesa" class="btn btn-outline-secondary"> Voltar </a>
 
             <h1> {{$post -> nome}} </h1>
 
-            <p> {!!$post -> quantidade!!} </p>
+            <p> {!!$post -> quantidade!!} €</p>
 
             <hr>
 
-            <a href="/despesa/{{$post -> id}}/edit" class="btn btn-outline-secondary"> Editar </a>
+            <a href="/{{ Auth::user()->id }}/despesa/{{$post -> id}}/edit" class="btn btn-outline-secondary"> Editar </a>
 
             <br><br>
 

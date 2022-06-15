@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Despesa;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DespesaController extends Controller
@@ -12,20 +13,21 @@ class DespesaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user)
     {
         //
-        $posts = Despesa::all();
+        $posts = Despesa::where('userId', $user->id) -> orderby('data') -> get();
+
 
         //return $posts;
         return view('despesa.index', ['posts' => $posts]);
 
     }
 
-     public function create()
+     public function create(User $user)
     {
         //
-        return view('despesa.create');
+        return view('despesa.create', ['userId' => $user->id]);
     }
 
         /**
@@ -34,12 +36,12 @@ class DespesaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(User $user, Request $request)
     {
         //
-        $newPost = Despesa::create([ 'nome' => $request -> nome, 'quantidade' => $request -> quantidade, 'data' => $request -> data ]);
+        $newPost = Despesa::create([ 'nome' => $request -> nome, 'quantidade' => $request -> quantidade, 'data' => $request -> data, 'userId' => $request -> userId ]);
 
-        return redirect('despesa/'.$newPost -> id);
+        return redirect($user->id.'/despesa/'.$newPost -> id);
 
     }
 
@@ -49,7 +51,7 @@ class DespesaController extends Controller
      * @param  \App\Models\Despesa  $despesa
      * @return \Illuminate\Http\Response
      */
-    public function show(Despesa $despesa)
+    public function show(User $user, Despesa $despesa)
     {
         //
         //return $blogPost;

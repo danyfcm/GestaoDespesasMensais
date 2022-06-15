@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
 
-            <a href="/blog" class="btn btn-outline-secondary" style="margin-bottom: 0.5%"> Voltar </a>
+            <a href="/{{ Auth::user()->id }}/despesa" class="btn btn-outline-secondary" style="margin-bottom: 0.5%"> Voltar </a>
 
             <div class="border rounded">
 
@@ -33,6 +33,9 @@
                         <input class="form-control" type="date" id="data" name="data" required></input>
 
                     </div>
+
+                    <input class="form-control" type="number" id="userId" name="userId" value={{ $userId }} hidden></input>
+
                     <div class="control-group">
 
                         <button id="btn-submit" class="btn btn-secondary" style="margin-top: 0.5%; margin-bottom: 0.5%"> Criar </button>
