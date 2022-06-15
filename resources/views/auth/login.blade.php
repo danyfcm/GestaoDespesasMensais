@@ -5,11 +5,11 @@
 
         @csrf
         <div class="form-group">
-            <label for = "email"> Email </label>
-            <input type = "email" id="email" name = "email" placeholder = "email" class = "form-control" value="{{old('email')}}">
+            <label for = "username"> Email </label>
+            <input type = "email" id="username" name = "username" placeholder = "email" class = "form-control" value="{{old('email')}}">
 
-            @if ($errors -> has('email'))
-                <span class = "text-danger"> {{$errors -> first('email')}} </span>
+            @if ($errors -> has('username'))
+                <span class = "text-danger"> {{$errors -> first('username')}} </span>
             @endif
         </div>
 

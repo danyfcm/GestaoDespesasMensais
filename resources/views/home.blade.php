@@ -7,18 +7,20 @@
 
                 <h1>{{ config('app.name') }}</h1>
 
-                @if (Auth::user() != null)
-
+                @auth
                     <p>Para ver as despesas clique no botão</p>
                     <a href="/despesa" class="btn btn-outline-primary"> Ver Despesas </a>
                     <br>
 
                     <a href="{{ route('logout.perform') }}" class="btn btn-outline-primary" style="margin: 1vh"> Logout </a>
+                @endauth
 
-                @else
+                @guest
                     <a href="/login" class="btn btn-outline-primary" style="margin: 1vh"> Login </a>
                     <a href="/register" class="btn btn-outline-primary"> Registar </a>
-                @endif
+                @endguest
+
+
             </div>
         </div>
     </div>
