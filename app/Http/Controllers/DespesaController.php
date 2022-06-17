@@ -16,11 +16,11 @@ class DespesaController extends Controller
     public function index(User $user)
     {
         //
-        $posts = Despesa::where('userId', $user->id) -> orderby('data') -> get();
+        $posts = Despesa::where('userId', $user->id) -> orderby('data', 'desc') -> get();
 
 
         //return $posts;
-        return view('despesa.index', ['posts' => $posts]);
+        return view('despesa.index', ['posts' => $posts], ['user' => $user]);
 
     }
 
@@ -65,7 +65,7 @@ class DespesaController extends Controller
      * @param  \App\Models\Despesa  $despesa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Despesa $despesa)
+    public function edit(User $user, Despesa $despesa)
     {
         //
 
@@ -79,12 +79,12 @@ class DespesaController extends Controller
      * @param  \App\Models\Despesa  $despesa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Despesa $despesa)
+    public function update(User $user, Request $request, Despesa $despesa)
     {
         //
         $despesa -> update( [ 'nome' => $request -> nome, 'quantidade' => $request -> quantidade, 'data' => $request -> data ] );
 
-        return redirect( 'despesa/'.$despesa -> id );
+        return redirect( $user->id.'/despesa/'.$despesa -> id );
 
     }
 
@@ -94,12 +94,12 @@ class DespesaController extends Controller
      * @param  \App\Models\Despesa  $despesa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Despesa $despesa)
+    public function destroy(User $user, Despesa $despesa)
     {
         //
         $despesa -> delete();
 
-        return redirect( '/despesa' );
+        return redirect( $user->id.'/despesa/');
 
     }
 }

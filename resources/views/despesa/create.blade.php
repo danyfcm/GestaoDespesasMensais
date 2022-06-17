@@ -24,7 +24,7 @@
                     <div class="control-group">
 
                         <label for="quantidade"> Quantidade </label>
-                        <input class="form-control" type="number" id="quantidade" name="quantidade" placeholder="Escreva a quantidade"  required></input>
+                        <input class="form-control" type="number" id="quantidade" name="quantidade" placeholder="Escreva a quantidade" step=".01"  required></input>
 
                     </div>
                     <div class="control-group">
@@ -36,11 +36,7 @@
 
                     <input class="form-control" type="number" id="userId" name="userId" value={{ $userId }} hidden></input>
 
-                    <div class="control-group">
-
-                        <button id="btn-submit" class="btn btn-secondary" style="margin-top: 0.5%; margin-bottom: 0.5%"> Criar </button>
-
-                    </div>
+                    <button id="btn-submit" class="btn btn-outline-secondary" style="margin-top: 1%; margin-bottom: 1%; width: 100%"> Criar </button>
 
                 </form>
 
